@@ -5,4 +5,4 @@ EntityFramework project has not been changed. All changes made in the Connectr.T
 - DTOs
 - Models
 
-### Please see my postman collection in the folder 'postman.collection' for full details of the requests made 
+### Please see my postman collection in the file 'Starwars.postman_collection.json' for full details of the requests made 
