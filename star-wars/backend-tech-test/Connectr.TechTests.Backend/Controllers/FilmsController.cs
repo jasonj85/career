@@ -42,14 +42,22 @@ namespace Connectr.TechTests.Backend.Controllers
             // filter results
             if (filter.Species != null)
             {
-                films = films.Where(f => f.Species.Contains(filter.Species)).ToList();
+                films = films
+                    .Where(f => f.Species
+                        .ConvertAll(f => f.ToLower())
+                        .Contains(filter.Species.ToLower()))
+                    .ToList();
                 if (!films.Any())
                     return NotFound(new ErrorResponse() { Error = $"No Films found for the species '{filter.Species}'" });
             }
 
             if (filter.Planet != null)
             {
-                films = films.Where(f => f.Planets.Contains(filter.Planet)).ToList();
+                films = films
+                    .Where(f => f.Planets
+                        .ConvertAll(f => f.ToLower())
+                        .Contains(filter.Planet.ToLower()))
+                    .ToList();
                 if (!films.Any())
                     return NotFound(new ErrorResponse() { Error = $"No Films found for the planet '{filter.Planet}'" });
 

@@ -91,7 +91,7 @@ namespace Connectr.TechTests.Backend.Controllers
             // check films exists
             var filmIds = character.Films.Select(f => f.Id).ToList();
             var films = _context.Films.Where(f => filmIds.Contains(f.Id)).ToList();
-            if (!species.Any())
+            if (!films.Any())
                 return BadRequest();
             newCharacter.Films = films;
 
